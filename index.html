@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.svg" alt="логотип.">
+        </header>
+
+        <main>
+            <section class="profile">
+                <div class="profile__user">
+                    <img class="profile__avatar" src="./images/avatar.jpg" alt="аватарка.">
+                    <div class="profile__info">
+                        <div>
+                            <h1 class="profile__name">Жак-Ив Кусто</h1>
+                            <button type="button" class="profile__edit-button"></button>
+                        </div>
+                        <p class="profile__about">Исследователь океана</p>
+                    </div>
+                </div>
+                <button type="button" class="profile__add-button"></button>
+            </section>
+
+            <section>
+                <ul class="elements">
+                    <li class="element">
+                        <img class="element__photo" src="./images/baikal.jpg" alt="Байкал.">
+                        <div class="element__container">
+                            <h2 class="element__name">Байкал</h2>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./images/dombai.jpg" alt="Домбай.">
+                        <div class="element__container">
+                            <h2 class="element__name">Домбай</h2>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./images/elbrus.jpg" alt="Эльбрус.">
+                        <div class="element__container">
+                            <h2 class="element__name">Эльбрус</h2>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./images/karachaevsk.jpg" alt="Карачаевск.">
+                        <div class="element__container">
+                            <h2 class="element__name">Карачаевск</h2>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./images/moscow2.jpg" alt="Москва.">
+                        <div class="element__container">
+                            <h2 class="element__name">Москва</h2>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./images/tokyo.jpg" alt="Токио.">
+                        <div class="element__container">
+                            <h2 class="element__name">Токио</h2>
+                            <button class="element__like-button"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <h2 class="footer__author">© 2021 Рылова Юлия</h2>
+        </footer>
+
+        <section class="popup">
+            <div class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form">
+                    <input type="text" placeholder="Имя" class="popup__text popup__text_type_name">
+                    <input type="text" placeholder="О себе" class="popup__text popup__text_type_about">
+                    <button class="popup__submit-button">Сохранить</button>
+                    <button class="popup__close-button"></button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="./pages/index.js"></script>
+</body>
+
+</html>
