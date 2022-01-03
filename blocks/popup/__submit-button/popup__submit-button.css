@@ -8,6 +8,8 @@
     border: none;
     padding: 0;
     color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
 }
 
 .popup__submit-button:hover {

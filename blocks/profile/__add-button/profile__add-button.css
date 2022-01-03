@@ -6,6 +6,8 @@
     background-repeat: no-repeat;
     background-position: center;
     border: 2px solid #ffffff;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
 }
 
 .profile__add-button:hover {

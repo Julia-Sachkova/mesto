@@ -12,7 +12,7 @@
 <body class="body">
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/logo.svg" alt="логотип.">
+            <a><img class="header__logo" src="./images/logo.svg" alt="логотип."></a>
         </header>
 
         <main>
@@ -22,56 +22,57 @@
                     <div class="profile__info">
                         <div class="profile__container">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button type="button" class="profile__edit-button"></button>
+                            <button type="button" aria-label="редактирование профиля."
+                                class="profile__edit-button"></button>
                         </div>
                         <p class="profile__about">Исследователь океана</p>
                     </div>
                 </div>
-                <button type="button" class="profile__add-button"></button>
+                <button type="button" aria-label="добавление новой фотокарточки." class="profile__add-button"></button>
             </section>
 
             <section>
-                <ul class="elements">
-                    <li class="element">
-                        <img class="element__photo" src="./images/baikal.jpg" alt="Байкал.">
-                        <div class="element__container">
-                            <h2 class="element__name">Байкал</h2>
-                            <button class="element__like-button"></button>
+                <ul class="cards">
+                    <li class="card">
+                        <img class="card__photo" src="./images/baikal.jpg" alt="Байкал.">
+                        <div class="card__container">
+                            <h2 class="card__name">Байкал</h2>
+                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
                         </div>
                     </li>
-                    <li class="element">
-                        <img class="element__photo" src="./images/dombai.jpg" alt="Домбай.">
-                        <div class="element__container">
-                            <h2 class="element__name">Домбай</h2>
-                            <button class="element__like-button"></button>
+                    <li class="card">
+                        <img class="card__photo" src="./images/dombai.jpg" alt="Домбай.">
+                        <div class="card__container">
+                            <h2 class="card__name">Домбай</h2>
+                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
                         </div>
                     </li>
-                    <li class="element">
-                        <img class="element__photo" src="./images/elbrus.jpg" alt="Эльбрус.">
-                        <div class="element__container">
-                            <h2 class="element__name">Эльбрус</h2>
-                            <button class="element__like-button"></button>
+                    <li class="card">
+                        <img class="card__photo" src="./images/elbrus.jpg" alt="Эльбрус.">
+                        <div class="card__container">
+                            <h2 class="card__name">Эльбрус</h2>
+                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
                         </div>
                     </li>
-                    <li class="element">
-                        <img class="element__photo" src="./images/karachaevsk.jpg" alt="Карачаевск.">
-                        <div class="element__container">
-                            <h2 class="element__name">Карачаевск</h2>
-                            <button class="element__like-button"></button>
+                    <li class="card">
+                        <img class="card__photo" src="./images/karachaevsk.jpg" alt="Карачаевск.">
+                        <div class="card__container">
+                            <h2 class="card__name">Карачаевск</h2>
+                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
                         </div>
                     </li>
-                    <li class="element">
-                        <img class="element__photo" src="./images/moscow2.jpg" alt="Москва.">
-                        <div class="element__container">
-                            <h2 class="element__name">Москва</h2>
-                            <button class="element__like-button"></button>
+                    <li class="card">
+                        <img class="card__photo" src="./images/moscow2.jpg" alt="Москва.">
+                        <div class="card__container">
+                            <h2 class="card__name">Москва</h2>
+                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
                         </div>
                     </li>
-                    <li class="element">
-                        <img class="element__photo" src="./images/tokyo.jpg" alt="Токио.">
-                        <div class="element__container">
-                            <h2 class="element__name">Токио</h2>
-                            <button class="element__like-button"></button>
+                    <li class="card">
+                        <img class="card__photo" src="./images/tokyo.jpg" alt="Токио.">
+                        <div class="card__container">
+                            <h2 class="card__name">Токио</h2>
+                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
                         </div>
                     </li>
                 </ul>
@@ -79,20 +80,24 @@
         </main>
 
         <footer class="footer">
-            <h2 class="footer__author">© 2021 Рылова Юлия</h2>
+            <p class="footer__author">© 2021 Рылова Юлия</p>
         </footer>
 
-        <section class="popup">
+        <article class="popup">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form">
-                    <input type="text" placeholder="Имя" class="popup__text popup__text_type_name">
-                    <input type="text" placeholder="О себе" class="popup__text popup__text_type_about">
-                    <button class="popup__submit-button">Сохранить</button>
-                    <button class="popup__close-button"></button>
+                <form name="profile-form" class="popup__form">
+                    <input type="text" name="username" required placeholder="Имя"
+                        class="popup__text popup__text_type_name">
+                    <input type="text" name="userabout" required placeholder="О себе"
+                        class="popup__text popup__text_type_about">
+                    <button type="submit" aria-label="сохранить изменения."
+                        class="popup__submit-button">Сохранить</button>
                 </form>
+                <button type="button" aria-label="закрыть окно редактирования профиля."
+                    class="popup__close-button"></button>
             </div>
-        </section>
+        </article>
     </div>
 
     <script src="./pages/index.js"></script>
