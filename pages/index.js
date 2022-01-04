@@ -35,7 +35,7 @@ function formSubmitHandler(evt) {
     closePopup();
 }
 
-profileEditBtn.addEventListener('click', openPopup);
+profileEditBtn.addEventListener('click', formValue);
 
 closeBtn.addEventListener('click', closePopup);
 
