@@ -32,58 +32,16 @@
             </section>
 
             <section>
-                <ul class="cards">
-                    <li class="card">
-                        <img class="card__photo" src="./images/baikal.jpg" alt="Байкал.">
-                        <div class="card__container">
-                            <h2 class="card__name">Байкал</h2>
-                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__photo" src="./images/dombai.jpg" alt="Домбай.">
-                        <div class="card__container">
-                            <h2 class="card__name">Домбай</h2>
-                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__photo" src="./images/elbrus.jpg" alt="Эльбрус.">
-                        <div class="card__container">
-                            <h2 class="card__name">Эльбрус</h2>
-                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__photo" src="./images/karachaevsk.jpg" alt="Карачаевск.">
-                        <div class="card__container">
-                            <h2 class="card__name">Карачаевск</h2>
-                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__photo" src="./images/moscow2.jpg" alt="Москва.">
-                        <div class="card__container">
-                            <h2 class="card__name">Москва</h2>
-                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__photo" src="./images/tokyo.jpg" alt="Токио.">
-                        <div class="card__container">
-                            <h2 class="card__name">Токио</h2>
-                            <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="cards"></ul>
             </section>
+
         </main>
 
         <footer class="footer">
             <p class="footer__author">© 2021 Рылова Юлия</p>
         </footer>
 
-        <article class="popup">
+        <article class="popup popup__edit-profile">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="profile-form" class="popup__form">
@@ -92,13 +50,49 @@
                     <input type="text" name="userabout" required placeholder="О себе"
                         class="popup__text popup__text_type_about">
                     <button type="submit" aria-label="сохранить изменения."
-                        class="popup__submit-button">Сохранить</button>
+                        class="popup__submit-button popup__submit-button_profile">Сохранить</button>
                 </form>
                 <button type="button" aria-label="закрыть окно редактирования профиля."
-                    class="popup__close-button"></button>
+                    class="popup__close-button popup__close-button_profile"></button>
+            </div>
+        </article>
+
+        <article class="popup popup__add-card">
+            <div class="popup__container">
+                <h2 class="popup__title">Новое место</h2>
+                <form name="profile-form" class="popup__form popup__form-card">
+                    <input type="text" name="cardname" required placeholder="Название"
+                        class="popup__text popup__text_type_card-name">
+                    <input type="text" name="carrdlink" required placeholder="Ссылка на картинку"
+                        class="popup__text popup__text_type_card-link">
+                    <button type="submit" aria-label="создать карточку."
+                        class="popup__submit-button popup__submit-button_card">Создать</button>
+                </form>
+                <button type="button" aria-label="закрыть окно создания карточки."
+                    class="popup__close-button popup__close-button_card"></button>
+            </div>
+        </article>
+
+        <article class="popup popup__photo-zoom">
+            <div class="popup__container_photo-zoom">
+                <img class="popup__image" src="#" alt="Фото.">
+                <h2 class="popup__photo-name"></h2>
+                <button type="button" aria-label="закрыть окно карточки."
+                    class="popup__close-button popup__close-button_photo-zoom"></button>
             </div>
         </article>
     </div>
+
+    <template id="card">
+        <div class="card">
+            <img class="card__photo" src="#" alt="Фото.">
+            <button type="button" aria-label="удалить фото." class="card__delete-button"></button>
+            <div class="card__container">
+                <h2 class="card__name"></h2>
+                <button type="button" aria-label="поставить лайк." class="card__like-button"></button>
+            </div>
+        </div>
+    </template>
 
     <script src="./pages/index.js"></script>
 </body>
