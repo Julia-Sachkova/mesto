@@ -20,7 +20,7 @@ const closeCardPopup = document.querySelector('.popup__close-button_card');
 const popupPhoto = document.querySelector('.popup__photo-zoom');
 const closePhotoPopup = document.querySelector('.popup__close-button_photo-zoom');
 
-const initialCards = [
+let initialCards = [
     {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -47,10 +47,10 @@ const initialCards = [
     }
 ]
 
-initialCards.forEach(function (item) {
+function initializeCards(cardInfo) {
     const cardElement = card.querySelector('.card').cloneNode(true);
-    cardElement.querySelector('.card__name').textContent = item.name;
-    cardElement.querySelector('.card__photo').src = item.link;
+    cardElement.querySelector('.card__name').textContent = cardInfo.name;
+    cardElement.querySelector('.card__photo').src = cardInfo.link;
     cardElement.querySelector('.card__like-button').addEventListener('click', function (evt) {
         evt.target.classList.toggle('card__like-button_active');
     });
@@ -60,13 +60,16 @@ initialCards.forEach(function (item) {
     });
 
     cardElement.querySelector('.card__photo').addEventListener('click', function () {
-        document.querySelector('.popup__image').src = item.link;
-        document.querySelector('.popup__photo-name').textContent = item.name;
+        document.querySelector('.popup__image').src = cardInfo.link;
+        document.querySelector('.popup__photo-name').textContent = cardInfo.name;
         popupToggle(popupPhoto);
     });
+    return cardElement;
+}
 
-    cards.append(cardElement);
-})
+initialCards.forEach(function (item) {
+    cards.append(initializeCards(item));
+});
 
 function popupToggle(togPopup) {
     togPopup.classList.toggle(popupOpened);
@@ -91,14 +94,19 @@ function formSubmitHandler(evt) {
 function submitCard(evt) {
     evt.preventDefault();
 
-    const cardItem = document.createElement('card');
-    const cardName = document.querySelector('.card__name');
-    const cardPhoto = document.querySelector('.card__photo');
+    let cardItem = {
+        name: '',
+        link: ''
+    }
 
-    cardName.textContent = cardNameInput.value;
-    cardPhoto.src = cardLinkInput.value;
+    cardItem.name = cardNameInput.value;
+    cardItem.link = cardLinkInput.value;
 
-    initialCards.prepend(cardItem);
+    initialCards.unshift(cardItem);
+    initialCards.pop();
+
+    cards.prepend(initializeCards(cardItem));
+    cards.removeChild(cards.lastChild);
 
     popupToggle(popupAddCard);
 }
@@ -125,10 +133,6 @@ addBtn.addEventListener('click', function () {
     popupToggle(popupAddCard);
     cardNameInput.value = '';
     cardLinkInput.value = '';
-});
-
-submitBtnCard.addEventListener('click', function () {
-    popupToggle(popupAddCard);
 });
 
 document.addEventListener('keydown', function (event) {
