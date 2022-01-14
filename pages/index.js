@@ -17,7 +17,7 @@ const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCard = document.querySelector('.popup_add-card');
 const cardForm = document.querySelector('.popup__form-card');
 const closeCardPopup = document.querySelector('.popup__close-button_card');
-const popupPhoto = document.querySelector('.popup__photo-zoom');
+const popupPhoto = document.querySelector('.popup_photo-zoom');
 const closePhotoPopup = document.querySelector('.popup__close-button_photo-zoom');
 
 let initialCards = [
