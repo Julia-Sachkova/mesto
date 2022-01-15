@@ -37,7 +37,7 @@ function initializeCard(cardInfo) {
     cardElement.querySelector('.card__photo').addEventListener('click', function () {
         popupImg.src = cardInfo.link;
         popupPhotoName.textContent = cardInfo.name;
-        popupToggle(popupPhoto);
+        openPopup(popupPhoto);
     });
     return cardElement;
 }
@@ -46,15 +46,19 @@ initialCards.forEach(function (item) {
     cards.append(initializeCard(item));
 });
 
-function popupToggle(togPopup) {
-    togPopup.classList.toggle(popupOpened);
+function openPopup(open) {
+    open.classList.add(popupOpened);
+}
+
+function closePopup(close) {
+    close.classList.remove(popupOpened);
 }
 
 function handleOpenProfilePopup() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileAbout.textContent;
 
-    popupToggle(popupEditProfile);
+    openPopup(popupEditProfile);
 }
 
 function handleSubmitForm(evt) {
@@ -63,7 +67,7 @@ function handleSubmitForm(evt) {
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
 
-    popup.classList.remove(popupOpened);
+    closePopup(popupEditProfile);
 }
 
 function submitCard(evt) {
@@ -76,7 +80,7 @@ function submitCard(evt) {
 
     cards.prepend(initializeCard(cardItem));
 
-    popupToggle(popupAddCard);
+    closePopup(popupAddCard);
 }
 
 profileEditBtn.addEventListener('click', handleOpenProfilePopup);
@@ -85,20 +89,20 @@ formElement.addEventListener('submit', handleSubmitForm);
 
 cardForm.addEventListener('submit', submitCard);
 
-closeCardPopup.addEventListener('click', () => popupToggle(popupAddCard));
+closeCardPopup.addEventListener('click', () => closePopup(popupAddCard));
 
-closeProfilePopup.addEventListener('click', () => popupToggle(popupEditProfile));
+closeProfilePopup.addEventListener('click', () => closePopup(popupEditProfile));
 
-closePhotoPopup.addEventListener('click', () => popupToggle(popupPhoto));
+closePhotoPopup.addEventListener('click', () => closePopup(popupPhoto));
 
 addBtn.addEventListener('click', function () {
-    popupToggle(popupAddCard);
+    openPopup(popupAddCard);
     cardNameInput.value = '';
     cardLinkInput.value = '';
 });
 
 document.addEventListener('keydown', function (event) {
     if (event.code === "Enter") {
-        popup.classList.remove(popupOpened);
+        popup.classList.remove(popupOpened)
     }
 });
