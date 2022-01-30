@@ -44,32 +44,35 @@
         <article class="popup popup_edit-profile">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="profile-form" class="popup__form">
-                    <input type="text" name="username" required placeholder="Имя"
-                        class="popup__text popup__text_type_name">
-                    <input type="text" name="userabout" required placeholder="О себе"
-                        class="popup__text popup__text_type_about">
+                <form name="profile-form" class="popup__form popup__form-profile" novalidate>
+                    <input type="text" name="username" placeholder="Имя" class="popup__text popup__text_type_name"
+                        minlength="2" maxlength="40" required id="name-input">
+                    <span class="popup__text_error name-input-error"></span>
+                    <input type="text" name="userabout" placeholder="О себе" class="popup__text popup__text_type_about"
+                        minlength="2" maxlength="200" required id="about-input">
+                    <span class="popup__text_error about-input-error"></span>
                     <button type="submit" aria-label="сохранить изменения."
                         class="popup__submit-button popup__submit-button_profile">Сохранить</button>
                 </form>
                 <button type="button" aria-label="закрыть окно редактирования профиля."
-                    class="popup__close-button popup__close-button_profile"></button>
+                    class="popup__close-button"></button>
             </div>
         </article>
 
         <article class="popup popup_add-card">
             <div class="popup__container">
                 <h2 class="popup__title">Новое место</h2>
-                <form name="profile-form" class="popup__form popup__form-card">
-                    <input type="text" name="cardname" required placeholder="Название"
-                        class="popup__text popup__text_type_card-name">
-                    <input type="text" name="carrdlink" required placeholder="Ссылка на картинку"
-                        class="popup__text popup__text_type_card-link">
+                <form name="profile-form" class="popup__form popup__form-card" novalidate>
+                    <input type="text" name="cardname" required placeholder="Название" minlength="2" maxlength="30"
+                        class="popup__text popup__text_type_card-name" id="cardname-input">
+                    <span class="popup__text-error cardname-input-error"></span>
+                    <input type="url" name="cardlink" required placeholder="Ссылка на картинку"
+                        class="popup__text popup__text_type_card-link" id="cardlink-input">
+                    <span class="popup__text-error cardlink-input-error"></span>
                     <button type="submit" aria-label="создать карточку."
                         class="popup__submit-button popup__submit-button_card">Создать</button>
                 </form>
-                <button type="button" aria-label="закрыть окно создания карточки."
-                    class="popup__close-button popup__close-button_card"></button>
+                <button type="button" aria-label="закрыть окно создания карточки." class="popup__close-button"></button>
             </div>
         </article>
 
@@ -77,8 +80,7 @@
             <div class="popup__container-zoom">
                 <img class="popup__image" src="#" alt="Фото.">
                 <h2 class="popup__photo-name"></h2>
-                <button type="button" aria-label="закрыть окно карточки."
-                    class="popup__close-button popup__close-button_photo-zoom"></button>
+                <button type="button" aria-label="закрыть окно карточки." class="popup__close-button"></button>
             </div>
         </article>
     </div>
@@ -94,6 +96,7 @@
         </div>
     </template>
     <script src="./pages/cards.js"></script>
+    <script src="./pages/validate.js"></script>
     <script src="./pages/index.js"></script>
 </body>
 
