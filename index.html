@@ -62,7 +62,7 @@
         <article class="popup popup_add-card">
             <div class="popup__container">
                 <h2 class="popup__title">Новое место</h2>
-                <form name="profile-form" class="popup__form popup__form-card" novalidate>
+                <form name="card-form" class="popup__form popup__form-card" novalidate>
                     <input type="text" name="cardname" required placeholder="Название" minlength="2" maxlength="30"
                         class="popup__text popup__text_type_card-name" id="cardname-input">
                     <span class="popup__text-error cardname-input-error"></span>
@@ -85,7 +85,7 @@
         </article>
     </div>
 
-    <template class="card-template">
+    <template id="card-template">
         <div class="card">
             <img class="card__photo" src="#" alt="#">
             <button type="button" aria-label="удалить фото." class="card__delete-button"></button>

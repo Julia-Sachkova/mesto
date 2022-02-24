@@ -1,15 +1,14 @@
-import { popupImg, popupPhoto, popupPhotoName, openPopup } from './index.js';
-
 export default class Card {
-    constructor(cardItem, cardSelector) {
+    constructor(cardItem, cardSelector, handleCardClick) {
         this._name = cardItem.name;
         this._link = cardItem.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getCardTemplate() {
         const cardElement = document
-            .querySelector('.card-template')
+            .querySelector(this._cardSelector)
             .content
             .querySelector('.card')
             .cloneNode(true);
@@ -18,18 +17,14 @@ export default class Card {
     }
 
     _handleLikeBtn() {
-        this._element.querySelector('.card__like-button').classList.toggle('card__like-button_active');
-    }
-
-    _handleOpenCardPhoto() {
-        popupImg.src = this._link;
-        popupImg.alt = this._name;
-        popupPhotoName.textContent = this._name;
-        openPopup(popupPhoto);
+        this._likeBtn.classList.toggle('card__like-button_active');
     }
 
     _setEventListeners() {
-        this._element.querySelector('.card__like-button').addEventListener('click', () => {
+        this._likeBtn = this._element.querySelector('.card__like-button');
+        this._cardImg = this._element.querySelector('.card__photo');
+
+        this._likeBtn.addEventListener('click', () => {
             this._handleLikeBtn();
         });
 
@@ -37,8 +32,8 @@ export default class Card {
             this._element.remove();
         });
 
-        this._element.querySelector('.card__photo').addEventListener('click', () => {
-            this._handleOpenCardPhoto();
+        this._cardImg.addEventListener('click', () => {
+            this._handleCardClick(this._name, this._link);
         });
     }
 
@@ -47,7 +42,8 @@ export default class Card {
         this._setEventListeners();
 
         this._element.querySelector('.card__name').textContent = this._name;
-        this._element.querySelector('.card__photo').src = this._link;
+        this._cardImg.src = this._link;
+        this._cardImg.alt = this._name;
 
         return this._element;
     }

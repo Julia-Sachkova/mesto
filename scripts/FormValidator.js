@@ -7,27 +7,27 @@ export const validationObj = {
 }
 
 export default class FormValidator {
-    constructor(data, formSelector) {
-        this._formSelector = formSelector;
+    constructor(data, form) {
+        this._form = form;
         this._inputSelector = data.inputSelector;
         this._submitButtonSelector = data.submitButtonSelector;
         this._inactiveButtonClass = data.inactiveButtonClass;
         this._inputErrorClass = data.inputErrorClass;
         this._errorClass = data.errorClass;
 
-        this._inputList = Array.from(this._formSelector.querySelectorAll(this._inputSelector));
-        this._btnElement = this._formSelector.querySelector(this._submitButtonSelector);
+        this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+        this._btnElement = this._form.querySelector(this._submitButtonSelector);
     }
 
     _showInputError(inputElement, errorMessage) {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
         errorElement.classList.add(this._errorClass);
     }
 
     _hideInputError(inputElement) {
-        const errorElement = this._formSelector.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.classList.remove(this._errorClass);
         errorElement.textContent = '';
@@ -57,8 +57,16 @@ export default class FormValidator {
         }
     }
 
-    _setEventListeners() {
+    resetValidation() {
+        this._toggleBtnState();
 
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement);
+        });
+
+    }
+
+    _setEventListeners() {
         this._toggleBtnState();
 
         this._inputList.forEach((inputElement) => {
