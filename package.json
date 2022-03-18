@@ -4,8 +4,8 @@
   "description": "* JavaScript\r * БЭМ\r * Grid Layout\r * FLexbox\r * Адаптивная вёрстка\r * ООП\r * Валидация форм",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=production",
-    "dev": "webpack-dev-server"
+    "build": "webpack --mode production",
+    "dev": "webpack server"
   },
   "repository": {
     "type": "git",
