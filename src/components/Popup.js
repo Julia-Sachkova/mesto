@@ -21,15 +21,12 @@ export default class Popup {
     }
 
     _handleOverlayClose(evt) {
-        if (evt.target.classList.contains('popup_opened')) {
+        if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close-button')) {
             this.close();
         }
     }
 
     setEventListeners() {
-        this._popup.querySelector('.popup__close-button').addEventListener('click', () => {
-            this.close();
-        });
         this._popup.addEventListener('click', this._handleOverlayClose.bind(this));
     }
 }

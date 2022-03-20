@@ -7,13 +7,11 @@ export default class Card {
     }
 
     _getCardTemplate() {
-        const cardElement = document
+        return document
             .querySelector(this._cardSelector)
             .content
             .querySelector('.card')
             .cloneNode(true);
-
-        return cardElement;
     }
 
     _handleLikeBtn() {

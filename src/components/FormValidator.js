@@ -41,14 +41,14 @@ export default class FormValidator {
         }
     }
 
-    _hasInvaildInput(inputList) {
-        return inputList.some((inputElement) => {
+    _hasInvaildInput() {
+        return this._inputList.some((inputElement) => {
             return !inputElement.validity.valid;
         });
     }
 
     _toggleBtnState() {
-        if (this._hasInvaildInput(this._inputList)) {
+        if (this._hasInvaildInput()) {
             this._btnElement.classList.add(this._inactiveButtonClass);
             this._btnElement.setAttribute('disabled', true);
         } else {

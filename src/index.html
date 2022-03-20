@@ -44,10 +44,10 @@
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="profile-form" class="popup__form popup__form-profile" novalidate>
-                    <input type="text" name="username" placeholder="Имя" class="popup__text popup__text_type_name"
+                    <input type="text" name="name" placeholder="Имя" class="popup__text popup__text_type_name"
                         minlength="2" maxlength="40" required id="name-input">
                     <span class="popup__text-error name-input-error"></span>
-                    <input type="text" name="userabout" placeholder="О себе" class="popup__text popup__text_type_about"
+                    <input type="text" name="about" placeholder="О себе" class="popup__text popup__text_type_about"
                         minlength="2" maxlength="200" required id="about-input">
                     <span class="popup__text-error about-input-error"></span>
                     <button type="submit" aria-label="сохранить изменения."
@@ -62,10 +62,10 @@
             <div class="popup__container">
                 <h2 class="popup__title">Новое место</h2>
                 <form name="card-form" class="popup__form popup__form-card" novalidate>
-                    <input type="text" name="cardname" required placeholder="Название" minlength="2" maxlength="30"
+                    <input type="text" name="name" required placeholder="Название" minlength="2" maxlength="30"
                         class="popup__text popup__text_type_card-name" id="cardname-input">
                     <span class="popup__text-error cardname-input-error"></span>
-                    <input type="url" name="cardlink" required placeholder="Ссылка на картинку"
+                    <input type="url" name="link" required placeholder="Ссылка на картинку"
                         class="popup__text popup__text_type_card-link" id="cardlink-input">
                     <span class="popup__text-error cardlink-input-error"></span>
                     <button type="submit" aria-label="создать карточку."
