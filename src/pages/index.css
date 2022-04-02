@@ -6,6 +6,7 @@
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__user/profile__user.css);
+@import url(../blocks/profile/__avatar-sector/profile__avatar-sector.css);
 @import url(../blocks/profile/__container/profile__container.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__info/profile__info.css);
@@ -13,6 +14,7 @@
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__about/profile__about.css);
+@import url(../blocks/profile/__avatar-change-btn/profile__avatar-change-btn.css);
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__photo/card__photo.css);
@@ -20,6 +22,8 @@
 @import url(../blocks/card/__name/card__name.css);
 @import url(../blocks/card/__like-button/card__like-button.css);
 @import url(../blocks/card/__like-button/_active/card__like-button_active.css);
+@import url(../blocks/card/__like-sector/card__like-sector.css);
+@import url(../blocks/card/__like-counter/card__like-counter.css);
 @import url(../blocks/card/__delete-button/card__delete-button.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
@@ -35,9 +39,11 @@
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/popup/__submit-button/_type/popup__submit-button_type_error.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__form-confirm-delete/popup__form-confirm-delete.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/_photo-zoom/popup_photo-zoom.css);
 @import url(../blocks/popup/__container-zoom/popup__container-zoom.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__photo-name/popup__photo-name.css);
 @import url(../blocks/popup/__close-button/_photo-zoom/popup__close-button_photo-zoom.css);
+@import url(../blocks/popup/__submit-button_delete-confirm/popup__submit-button_delete-confirm.css);
