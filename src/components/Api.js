@@ -6,7 +6,7 @@ export default class Api {
 
     _checkResOk(res) {
         if (res.ok) {
-            return res.json;
+            return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
     }
@@ -16,10 +16,7 @@ export default class Api {
             method: 'GET',
             headers: this._headers
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -30,10 +27,7 @@ export default class Api {
             method: 'GET',
             headers: this._headers
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -48,10 +42,7 @@ export default class Api {
                 about: userData.about
             })
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -66,10 +57,7 @@ export default class Api {
                 link: cardItem.link
             })
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -80,10 +68,7 @@ export default class Api {
             method: 'PUT',
             headers: this._headers
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -94,10 +79,7 @@ export default class Api {
             method: 'DELETE',
             headers: this._headers
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -108,10 +90,7 @@ export default class Api {
             method: 'DELETE',
             headers: this._headers
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });
@@ -125,10 +104,7 @@ export default class Api {
                 avatar: userData.avatar
             })
         })
-            .then((res) => {
-                this._checkResOk(res);
-                return res.json();
-            })
+            .then(this._checkResOk)
             .then((data) => {
                 return data;
             });

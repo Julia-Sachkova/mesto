@@ -22,21 +22,6 @@ export default class UserInfo {
         this._userAvatar.src = userData.avatar;
     }
 
-    setUserAvatar(userData) {
-        this._userAvatar.src = userData.avatar;
-        this._id = userData._id;
-    }
-
-    setUserInfo(userData) {
-        this._userName.textContent = userData.name;
-        this._userAbout.textContent = userData.about;
-        this._id = userData._id;
-    }
-
-    setId(id) {
-        this._id = id;
-    }
-
     getId() {
         return this._id;
     }

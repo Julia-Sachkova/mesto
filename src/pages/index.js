@@ -11,8 +11,6 @@ import PopupWithDelete from '../components/PopupWithDelete';
 import {
     profileEditBtn,
     profileForm,
-    nameInput,
-    jobInput,
     cards,
     addBtn,
     popupEditProfile,
@@ -52,7 +50,6 @@ const api = new Api({
 Promise.all([api.getUserInfoApi(), api.getCards()])
     .then(([userData, cardData]) => {
         userInfo.setAllInfo(userData);
-        userInfo.setId(userData._id)
         cardsList.renderItems(cardData);
     })
     .catch((err) => {
@@ -63,7 +60,7 @@ const handleSubmitProfile = (data) => {
     popupProfile.renderLoading(true);
     api.editUserInfo(data)
         .then((userData) => {
-            userInfo.setUserInfo(userData);
+            userInfo.setAllInfo(userData);
             popupProfile.close();
         })
         .catch((err) => {
@@ -78,10 +75,9 @@ const popupProfile = new PopupWithForm(popupEditProfile, handleSubmitProfile);
 popupProfile.setEventListeners();
 
 const handleOpenProfilePopup = () => {
-    const { name, about } = userInfo.getUserInfo();
+    const userData = userInfo.getUserInfo();
 
-    nameInput.value = name;
-    jobInput.value = about;
+    popupProfile.setInputValues(userData);
 
     popupProfile.open();
 
@@ -136,25 +132,21 @@ function deletePopupOpen(cardItem) {
     popupDeleteConfirm.open();
 }
 
-function createCard(item) {
-    const cardItem = {
-        name: item.name,
-        link: item.link,
-        likes: item.likes,
-        _id: item._id,
-        owner: item.owner,
-        like: like,
-        dislike: dislike,
-        handleCardClick: handleCardClick,
-        deleteCardClick: deletePopupOpen
-    }
-
-    return new Card(cardItem, card, userInfo.getId()).generateCard();
-}
-
 const cardsList = new Section({
     renderer: (item) => {
-        cardsList.addItem(createCard(item));
+        const cardItem = {
+            name: item.name,
+            link: item.link,
+            likes: item.likes,
+            _id: item._id,
+            owner: item.owner,
+            like: like,
+            dislike: dislike,
+            handleCardClick: handleCardClick,
+            deleteCardClick: deletePopupOpen
+        }
+
+        return new Card(cardItem, card, userInfo.getId()).generateCard();
     }
 }, cards);
 
@@ -170,7 +162,7 @@ const popupCard = new PopupWithForm(popupAddCard, (cardData) => {
     popupCard.renderLoading(true);
     api.createUserCard(cardItem)
         .then((cardItem) => {
-            cardsList.addItem(createCard(cardItem));
+            cardsList.addItem(cardItem);
             popupCardValidator.resetValidation();
             popupCard.close();
         })
@@ -187,7 +179,7 @@ const handleChangeAvatar = (data) => {
     popupEditAvatar.renderLoading(true);
     api.editAvatar(data)
         .then((dataAvatar) => {
-            userInfo.setUserAvatar(dataAvatar)
+            userInfo.setAllInfo(dataAvatar)
             popupAvatarValidator.resetValidation();
             popupEditAvatar.close();
         })
